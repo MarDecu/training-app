@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/" />
+
+  <meta charset="UTF-8" />
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+
+  <!-- ✅ Responsive -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <!-- ✅ Description -->
+  <meta
+    name="description"
+    content="Ansary Labs Training App"
+  />
+
+  <!-- ✅ Android -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- ✅ iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  />
+  <meta
+    name="apple-mobile-web-app-title"
+    content="Training App"
+  />
+
+  <!-- ✅ Icons -->
+  <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- ✅ Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <title>Training App</title>
+
+  <!-- ✅ منع الشاشة البيضا -->
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: white;
+      z-index: 9999;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ddd;
+      border-top: 5px solid #2563eb;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      font-size: 18px;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    flutter-view {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ شاشة تحميل -->
+  <div id="loading">
+    <div class="loader"></div>
+    <div class="loading-text">Loading Training App...</div>
+  </div>
+
+  <!-- ✅ Flutter -->
+  <script src="flutter_bootstrap.js" async></script>
+
+  <!-- ✅ Hide Loader After Flutter Loads -->
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var loader = document.getElementById('loading');
+      if (loader) {
+        loader.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
